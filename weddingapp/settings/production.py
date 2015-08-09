@@ -5,7 +5,7 @@ import os
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = ['127.0.0.1', '127.0.0.1']
 
