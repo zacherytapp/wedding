@@ -7,7 +7,7 @@ TEMPLATE_DEBUG = DEBUG
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost').split(',')
+ALLOWED_HOSTS = ['127.0.0.1', '127.0.0.1']
 
 ADMINS = (
     ('Zachery Tapp', 'zacherytapp@gmail.com'),
