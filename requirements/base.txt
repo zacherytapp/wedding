@@ -7,3 +7,7 @@ django
 django-model-utils
 
 psycopg2
+
+django-storages
+
+boto
