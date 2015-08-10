@@ -108,7 +108,7 @@ TEMPLATE_DIRS = (
 # Checks to see if this is a production instance - if
 # it is, it tells this document which sub-settings to pull from
 PRODUCTION_INSTANCE = os.environ['PRODUCTION_INSTANCE']
-if PRODUCTION_INSTANCE == True:
+if PRODUCTION_INSTANCE == 'True':
     try:
         from .production import *
     except ImportError:
