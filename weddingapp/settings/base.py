@@ -3,20 +3,16 @@ import os
 from os.path import join, abspath, dirname
 
 # PATH vars
-
 here = lambda *x: join(abspath(dirname(__file__)), *x)
 PROJECT_ROOT = here("..")
 root = lambda *x: join(abspath(PROJECT_ROOT), *x)
 
 sys.path.insert(0, root('apps'))
 
-
-# SECURITY WARNING: keep the secret key used in production secret!
+# SECURITY WARNING: keep the secret key a secret!
 SECRET_KEY = os.environ.get('SECRET_KEY','')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = []
 
@@ -79,23 +75,22 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.7/howto/static-files/
+# https://docs.djangoproject.com/en/1.8/howto/static-files/
+# --------------------------------------------------------------------
+# Support for AWS (How I figured it out):
+# https://www.caktusgroup.com/blog/2014/11/10/Using-Amazon-S3-to-store-your-Django-sites-static-and-media-files/
+# http://blog.doismellburning.co.uk/2012/07/14/using-amazon-s3-to-host-your-django-static-files/
 AWS_STORAGE_BUCKET_NAME = 'zakk-and-kira-wedding'
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID','')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY','')
 
-# Tell django-storages that when coming up with the URL for an item in S3 storage, keep
-# it simple - just use this domain plus the path. (If this isn't set, things get complicated).
-# This controls how the `static` template tag from `staticfiles` gets expanded, if you're using it.
-# We also use it in the next setting.
+# Custom app domain for my stuff on Amazon S3
 AWS_S3_CUSTOM_DOMAIN = '%s' % 's3-us-west-2.amazonaws.com/zakk-and-kira-wedding'
 
-# Tell the staticfiles app to use S3Boto storage when writing the collected static files (when
-# you run `collectstatic`).
+# Tell the staticfiles app to use S3Boto storage (when running `collectstatic`).
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
-# This is used by the `static` template tag from `static`, if you're using that. Or if anything else
-# refers directly to STATIC_URL. So it's safest to always set it.
+# Points to S3 folders - see Django docs above.
 STATIC_URL = 'https://%s/' % AWS_S3_CUSTOM_DOMAIN
 
 MEDIA_ROOT = root('assets', 'uploads')
@@ -124,6 +119,7 @@ else:
     except ImportError:
         pass
 
+TEMPLATE_DEBUG = DEBUG
 
 # importing test settings file if necessary
 if len(sys.argv) > 1 and 'test' in sys.argv[1]:
