@@ -119,8 +119,6 @@ else:
     except ImportError:
         pass
 
-TEMPLATE_DEBUG = DEBUG
-
 # importing test settings file if necessary
 if len(sys.argv) > 1 and 'test' in sys.argv[1]:
     from .testing import *

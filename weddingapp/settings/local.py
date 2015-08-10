@@ -2,6 +2,7 @@ from .base import *
 import os
 
 DEBUG = True
+
 ADMINS = (
     ('Zachery Tapp', 'zacherytapp@gmail.com'),
 )
