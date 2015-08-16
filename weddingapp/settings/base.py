@@ -12,8 +12,6 @@ sys.path.insert(0, root('apps'))
 # SECURITY WARNING: keep the secret key a secret!
 SECRET_KEY = os.environ.get('SECRET_KEY','')
 
-DEBUG = False
-
 ALLOWED_HOSTS = []
 
 # Application definition
@@ -25,10 +23,13 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'storages',
+    'ckeditor',
 )
 
 PROJECT_APPS = (
     'home',
+    'story',
+
 )
 
 INSTALLED_APPS += PROJECT_APPS
@@ -73,6 +74,21 @@ USE_L10N = True
 
 USE_TZ = True
 
+# CKEditor Settings
+# More information found here:
+# https://github.com/django-ckeditor/django-ckeditor
+CKEDITOR_UPLOAD_PATH = root('assets', 'uploads')
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+CKEDITOR_CONFIGS = {
+    'awesome_ckeditor': {
+        'toolbar': 'Advanced',
+    },
+    'default': {
+        'toolbar': 'Advanced',
+        'height': 300,
+        'width': 700,
+    },
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
@@ -92,6 +108,7 @@ STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 # Points to S3 folders - see Django docs above.
 STATIC_URL = 'https://%s/' % AWS_S3_CUSTOM_DOMAIN
+STATIC_ROOT = root('static')
 
 MEDIA_ROOT = root('assets', 'uploads')
 MEDIA_URL = '/media/'
