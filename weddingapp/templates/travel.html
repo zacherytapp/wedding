@@ -1,0 +1,27 @@
+{% load staticfiles %}
+{% load static %}
+<section class="no-padding bg-primary" id="party">
+    <div class="text-center">
+        <div class="cd-scrolling-bg-top">
+	        <div class="container-fluid">
+	            <div class="row no-gutter">
+				<div class="col-lg-10 col-lg-offset-1 text-center">
+					<h2 class="section-heading">Travel Information</h2>
+					<hr class="light">
+					{{travel_detail.body|safe}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-offset-1">
+					{% for loc in hotel %}
+						<div class="col-lg-4 text-center">
+							<h2><a href="{{loc.website}}">{{loc.title}}</a></h2>
+							<p>{{loc.description|safe}}</p>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+</section>

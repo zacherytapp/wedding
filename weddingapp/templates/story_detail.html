@@ -1,4 +1,5 @@
-<section class="bg-primary" id="about">
+{% load static %}
+<section class="bg-primary" id="story">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
@@ -8,4 +9,22 @@
             </div>
         </div>
     </div>
+    <div id="cd-timeline" class="cd-container">
+		{% for entry in timeline %}
+			<div class="cd-timeline-block">
+				<div class="cd-timeline-img cd-picture">
+					<img src="{% static 'img/heart.png' %}" alt="Picture">
+				</div>
+
+				<div class="cd-timeline-content">
+					<h2>{{entry.title}}</h2>
+					<p>{{entry.timeline_description|safe}}</p>
+					{% if entry.show_button %}
+						<a href="{{entry.button_link}}" class="cd-read-more">{{entry.link_title}}</a>
+					{% endif %}
+					<span class="cd-date">{{entry.timeline_date}}</span>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
 </section>

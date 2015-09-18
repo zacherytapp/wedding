@@ -1,0 +1,17 @@
+{% load staticfiles %}
+{% load static %}
+<section class="bg-primary" id="gallery">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 col-lg-offset-1 text-center">
+				<h2 class="section-heading">Gallery</h2>
+				<hr class="light">
+				<div class="galleria">
+					{% for image in gallery %}
+						<img src="{% get_static_prefix %}{{image.gallery_image}}">
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

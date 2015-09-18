@@ -1,3 +1,4 @@
+from django.conf import settings
 import sys
 import os
 from os.path import join, abspath, dirname
@@ -29,6 +30,12 @@ INSTALLED_APPS = (
 PROJECT_APPS = (
     'home',
     'story',
+    'gallery',
+    'core',
+    'party',
+    'information',
+    'travel',
+    'registry'
 
 )
 
@@ -110,8 +117,11 @@ STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 STATIC_URL = 'https://%s/' % AWS_S3_CUSTOM_DOMAIN
 STATIC_ROOT = root('static')
 
+MEDIAFILES_LOCATION = 'uploads'
 MEDIA_ROOT = root('assets', 'uploads')
-MEDIA_URL = '/media/'
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
