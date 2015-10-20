@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}You're Awesome!{% endblock %}
+
+{% block content %}
+<section class="bg-primary">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 col-lg-offset-1 text-center">
+				<h2 class="section-heading">Thanks for Contacting Us</h2>
+				<hr class="light">
+				<div>
+					<img src="{% static 'img/bill-murray-success.gif' %}">
+				</div>
+				<div>
+					<a href="/"><button class="col-sm-4 col-sm-offset-4 btn btn-primary">Go Back</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock content %}

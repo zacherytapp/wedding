@@ -3,7 +3,6 @@ from django.utils import timezone
 from ckeditor.fields import RichTextField
 from core.behaviors import TimeStampModel, Visibility, PublishedManager, PublishedListManager
 
-# Create your models here.
 class PartyMember(TimeStampModel, Visibility):
 	BRIDE = 'Bride'
 	GROOM = 'Groom'

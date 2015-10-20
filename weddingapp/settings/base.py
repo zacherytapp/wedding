@@ -35,7 +35,8 @@ PROJECT_APPS = (
     'party',
     'information',
     'travel',
-    'registry'
+    'registry',
+    'contact'
 
 )
 

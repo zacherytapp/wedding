@@ -94,8 +94,10 @@
       {% block registry %}
         {% include "registry.html" %}
       {% endblock %}
+      {% block contact %}
+        {% include "contact.html" %}
+      {% endblock %}
       {% endblock content %}
-
 
     <!-- Javascript
     ================================================== -->
@@ -116,9 +118,6 @@
 
     <script src="{% static 'js/wedding.js' %}"></script>
 
-    <script>
-      Galleria.run('.galleria');
-    </script>
     {% endblock javascript %}
   </body>
 </html>
