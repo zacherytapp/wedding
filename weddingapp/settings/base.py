@@ -36,6 +36,7 @@ PROJECT_APPS = (
     'information',
     'travel',
     'registry',
+    'events',
     'contact'
 
 )

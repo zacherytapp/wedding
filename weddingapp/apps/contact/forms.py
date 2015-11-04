@@ -9,7 +9,7 @@ class ContactForm(ModelForm):
 		model = Contact
 		fields = ['full_name', 'email', 'message']
 		widgets = {
-            'full_name': TextInput(attrs={'class': 'form-control'}),
-            'email': EmailInput(attrs={'class': 'form-control'}),
-            'message': Textarea(attrs={'class': 'form-control'})
+            'full_name': TextInput(attrs={'class': 'form-control', 'required': True}),
+            'email': EmailInput(attrs={'class': 'form-control', 'required': True}),
+            'message': Textarea(attrs={'class': 'form-control', 'required': True})
         }

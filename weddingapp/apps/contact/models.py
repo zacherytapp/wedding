@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from ckeditor.fields import RichTextField
-from core.behaviors import TimeStampModel, Visibility, PublishedManager, PublishedListManager
+from core.behaviors import TimeStampModel
 
 class Contact(TimeStampModel):
 	full_name = models.CharField(max_length=50)

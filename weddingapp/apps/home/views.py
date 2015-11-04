@@ -10,11 +10,17 @@ from travel.models import Hotel, TravelDetail
 from contact.models import Contact
 from registry.models import Registry
 from contact.forms import ContactForm
+from events.models import Event
 
 # This view renders the main page while passing in
 # a bunch of contexts for display in the templates.
 # You can check out how to use get_context_data here:
 # https://docs.djangoproject.com/en/1.8/ref/class-based-views/mixins-simple/
+# I'm also all about those Class Based Views - big ups to Two Scoops of Django
+# and the Django Docs
+# https://docs.djangoproject.com/en/1.8/topics/class-based-views/
+# http://twoscoopspress.org/products/two-scoops-of-django-1-8
+
 
 class HomeView(TemplateView):
 	template_name = "base.html"
@@ -29,5 +35,6 @@ class HomeView(TemplateView):
 		context['travel_detail'] = TravelDetail.objects.published()
 		context['hotel'] = Hotel.objects.all_published()
 		context['registry'] = Registry.objects.all_published()
+		context['event'] = Event.objects.all_published()
 		context['form'] = ContactForm
 		return context

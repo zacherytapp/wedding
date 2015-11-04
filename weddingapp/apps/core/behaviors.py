@@ -43,10 +43,10 @@ class Visibility(models.Model):
 	"""This meta model is used for adding publishe
 	elements to all models for visibility purposes"""
 	PUBLISHED = 'Published'
-	UNPUBLISHED = 'Unpusblished'
+	UNPUBLISHED = 'Unpublished'
 	VISIBILITY_CHOICES = (
 		(PUBLISHED, 'Published'),
-		(UNPUBLISHED, 'Unpusblished')
+		(UNPUBLISHED, 'Unpublished')
 	)
 	display_order = models.IntegerField()
 	visibility = models.CharField(max_length=20,
