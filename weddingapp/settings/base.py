@@ -25,6 +25,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'storages',
     'ckeditor',
+    'django_nose',
 )
 
 PROJECT_APPS = (
@@ -133,6 +134,15 @@ STATICFILES_DIRS = (
 TEMPLATE_DIRS = (
     root('templates'),
 )
+
+# Use nose to run all tests
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=events,home,story,gallery,core,party,information,travel,registry,contact',
+]
 
 # Checks to see if this is a production instance - if
 # it is, it tells this document which sub-settings to pull from
