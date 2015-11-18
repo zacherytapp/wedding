@@ -40,8 +40,9 @@ class EventsTest(TestCase):
 
 		published_events = Event.objects.filter(visibility='Published').count()
 		unpublished_events = Event.objects.filter(visibility='Unpublished').count()
+		first_event = Event.objects.filter(title="event1")
 		second_event = Event.objects.get(title="event2")
-
+		
 		
 		self.assertEqual(published_events, 3)
 		self.assertEqual(unpublished_events, 1)
