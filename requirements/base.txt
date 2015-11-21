@@ -14,4 +14,4 @@ boto
 
 django-ckeditor
 
-django_nose
+django-nose
