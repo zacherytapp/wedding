@@ -26,6 +26,7 @@ INSTALLED_APPS = (
     'storages',
     'ckeditor',
     'django_nose',
+    'tinymce',
 )
 
 PROJECT_APPS = (
@@ -146,17 +147,17 @@ NOSE_ARGS = [
 
 # Checks to see if this is a production instance - if
 # it is, it tells this document which sub-settings to pull from
-PRODUCTION_INSTANCE = os.environ['PRODUCTION_INSTANCE']
-if PRODUCTION_INSTANCE == 'True':
-    try:
-        from .production import *
-    except ImportError:
-        pass
-else:
-    try:
-        from .local import *
-    except ImportError:
-        pass
+# PRODUCTION_INSTANCE = os.environ['PRODUCTION_INSTANCE']
+# if PRODUCTION_INSTANCE == 'True':
+#     try:
+#         from .production import *
+#     except ImportError:
+#         pass
+# else:
+#     try:
+#         from .local import *
+#     except ImportError:
+#         pass
 
 # importing test settings file if necessary
 if len(sys.argv) > 1 and 'test' in sys.argv[1]:

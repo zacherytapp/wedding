@@ -2,7 +2,7 @@
 # After the first "pip install -r", just run "pip freeze" and add the version
 # to each package in each requirements/*.txt.
 
-django
+Django==1.8.3
 
 django-model-utils
 
@@ -15,3 +15,7 @@ boto
 django-ckeditor
 
 django-nose
+
+django-tinymce
+
+Pillow
