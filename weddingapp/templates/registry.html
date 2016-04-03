@@ -7,7 +7,7 @@
 			<hr class="light">
 			{% for store in registry %}
 				<div class="col-sm-4">
-					<span class="registry-image"></span><img src="{% get_static_prefix %}{{store.registry_image}}" class="img-responsive" alt="">
+					<span class="registry-image"></span><a href="{{store.registry_url}}"><img src="{% get_static_prefix %}{{store.registry_image}}" class="img-responsive" alt=""></a>
 				</div>
 			{% endfor %}
 		</div>
